@@ -1,35 +1,14 @@
-# Serilog Sample Project
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Serilog;
+using Serilog.Events;
+using Serilog.Sinks.Grafana.Loki;
+using System;
+using System.Collections.Generic;
 
-Sample Project using Serilog and write to Grafana Loki.
-
-## Project Content
-
-![ProjectStructure1](images/ProjectStructure1.jpg?raw=true)
-
-## Nuget Package Library
-
-    Install-Package Serilog.AspNetCore
-    Install-Package Serilog.Exceptions
-    Install-Package Serilog.Sinks.Grafana.Loki
-
-## appsettings.json
-
-    {
-        "Logging": {
-            "LogLevel": {
-            "Default": "Information",
-            "Microsoft": "Warning",
-            "Microsoft.Hosting.Lifetime": "Information"
-            }
-        },
-        "ExternalServices": {
-            "Grafana": "http://loki-distributed-distributor.monitoring:3100"
-        },
-        "AllowedHosts": "*"
-    }
-
-## Program.cs
-
+namespace SerilogSample
+{
     public class Program
     {
 
@@ -87,10 +66,4 @@ Sample Project using Serilog and write to Grafana Loki.
                     webBuilder.UseStartup<Startup>();
                 });
     }
-
-
-## Reference
-https://guides.github.com/features/mastering-markdown/  
-https://serilog.net  
-https://github.com/serilog/serilog/wiki  
-https://github.com/serilog/serilog/wiki/Getting-Started  
+}
